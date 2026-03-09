@@ -1,0 +1,22 @@
+<section class="auth-login">
+  <div class="auth-login__card">
+    <h1>Iniciar sesion</h1>
+    <p>Plantilla base para autenticacion por codigo.</p>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <label>
+        Correo
+        <input type="email" formControlName="email" placeholder="tu@correo.com" />
+      </label>
+
+      <label>
+        Codigo
+        <input type="text" formControlName="code" placeholder="123456" />
+      </label>
+
+      <button type="submit" [disabled]="submitting">
+        {{ submitting ? 'Ingresando...' : 'Ingresar' }}
+      </button>
+    </form>
+  </div>
+</section>

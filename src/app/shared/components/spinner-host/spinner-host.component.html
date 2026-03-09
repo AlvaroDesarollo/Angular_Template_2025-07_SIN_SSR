@@ -1,0 +1,7 @@
+@if (isActive()) {
+  <app-spinner />
+}
+@if (isLoadingActive()) {
+  <app-loading [message]="loadingMessage()" [fullScreen]="fullScreen()" />
+}
+

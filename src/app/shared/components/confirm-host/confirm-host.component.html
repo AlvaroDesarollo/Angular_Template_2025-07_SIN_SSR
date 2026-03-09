@@ -1,0 +1,34 @@
+@if (current(); as c) {
+  <div class="confirm-layer" (click)="onBackdrop()">
+    <section class="confirm-card" (click)="$event.stopPropagation()">
+      <div class="confirm-card__head">
+        <div class="confirm-card__icon" [class.is-danger]="c.danger">
+          @if (c.danger) {
+            !
+          } @else {
+            ?
+          }
+        </div>
+        <div>
+          <h3>{{ c.title }}</h3>
+          <p>{{ c.message }}</p>
+        </div>
+      </div>
+
+      <div class="confirm-card__actions">
+        <button type="button" class="btn confirm-card__cancel" (click)="onCancel()">
+          {{ c.cancelText }}
+        </button>
+        <button
+          type="button"
+          class="btn confirm-card__confirm"
+          [class.btn--primary]="!c.danger"
+          [class.confirm-card__danger]="c.danger"
+          (click)="onConfirm()"
+        >
+          {{ c.confirmText }}
+        </button>
+      </div>
+    </section>
+  </div>
+}

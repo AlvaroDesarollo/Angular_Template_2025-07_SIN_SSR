@@ -1,0 +1,16 @@
+<section class="dashboard" *ngIf="summary as data">
+  <header class="dashboard__header">
+    <h1>{{ data.title }}</h1>
+    <p>{{ data.subtitle }}</p>
+  </header>
+
+  <div class="dashboard__grid">
+    <article class="dashboard-card" *ngFor="let kpi of data.kpis">
+      <span class="dashboard-card__label">{{ kpi.label }}</span>
+      <strong class="dashboard-card__value">{{ kpi.value }}</strong>
+      <small class="dashboard-card__trend" [class]="kpi.trend || 'stable'">
+        {{ kpi.trend || 'stable' }}
+      </small>
+    </article>
+  </div>
+</section>

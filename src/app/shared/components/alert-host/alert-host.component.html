@@ -1,0 +1,9 @@
+@for (alert of alerts; track i; let i = $index) {
+<app-alert-message
+  [type]="alert.type"
+  [message]="alert.message"
+  [autoClose]="true"
+  [duration]="alert.duration || 5000"
+  (closed)="closeAlert(i)"
+/>
+}

@@ -1,0 +1,145 @@
+.confirm-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 10% 12%, rgb(37 99 235 / 0.2), transparent 35%),
+    radial-gradient(circle at 85% 80%, rgb(14 165 233 / 0.2), transparent 35%),
+    rgb(2 6 23 / 0.58);
+  backdrop-filter: blur(4px);
+  padding: 1rem;
+  animation: layerIn 160ms ease-out;
+}
+
+.confirm-card {
+  width: min(460px, 100%);
+  border: 1px solid rgb(148 163 184 / 0.3);
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 1) 0%, rgb(248 250 252 / 0.95) 100%);
+  box-shadow: 0 28px 48px rgb(2 6 23 / 0.32);
+  padding: 1rem 1rem 0.95rem;
+  animation: confirmIn 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.confirm-card__head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.78rem;
+  align-items: start;
+}
+
+.confirm-card__icon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #075985;
+  background: rgb(56 189 248 / 0.17);
+  border: 1px solid rgb(56 189 248 / 0.35);
+}
+
+.confirm-card__icon.is-danger {
+  color: #b91c1c;
+  background: rgb(248 113 113 / 0.15);
+  border-color: rgb(248 113 113 / 0.35);
+}
+
+.confirm-card h3 {
+  margin: 0;
+  font-size: 1.12rem;
+  color: var(--color-heading);
+  letter-spacing: 0.01em;
+}
+
+.confirm-card p {
+  margin: 0.34rem 0 0;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.confirm-card__actions {
+  margin-top: 1.05rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.55rem;
+}
+
+.confirm-card__actions .btn {
+  min-height: 42px;
+  border-radius: 10px;
+  padding: 0.5rem 0.95rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.confirm-card__cancel {
+  border: 1px solid rgb(148 163 184 / 0.5);
+  background: #fff;
+  color: #334155;
+}
+
+.confirm-card__cancel:hover {
+  background: #f8fafc;
+  border-color: rgb(100 116 139 / 0.55);
+}
+
+.confirm-card__confirm {
+  box-shadow: 0 8px 18px rgb(37 99 235 / 0.22);
+}
+
+.confirm-card__confirm:hover {
+  transform: translateY(-1px);
+}
+
+.confirm-card__danger {
+  background: #dc2626;
+  color: #fff;
+  box-shadow: 0 8px 18px rgb(220 38 38 / 0.28);
+}
+
+.confirm-card__danger:hover {
+  background: #b91c1c;
+}
+
+@keyframes layerIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes confirmIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 540px) {
+  .confirm-card {
+    padding: 0.9rem 0.9rem 0.85rem;
+  }
+
+  .confirm-card__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .confirm-card__actions .btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,35 @@
+@if (totalPages > 1) {
+  <nav class="pagination" aria-label="Paginacion de productos">
+    <button
+      type="button"
+      class="pagination__action"
+      [disabled]="!hasPrevPage"
+      (click)="previous()"
+    >
+      Anterior
+    </button>
+
+    <div class="pagination__pages">
+      @for (item of visiblePages; track item) {
+        <button
+          type="button"
+          class="pagination__page"
+          [class.is-active]="item === page"
+          [attr.aria-current]="item === page ? 'page' : null"
+          (click)="goToPage(item)"
+        >
+          {{ item }}
+        </button>
+      }
+    </div>
+
+    <button
+      type="button"
+      class="pagination__action"
+      [disabled]="!hasNextPage"
+      (click)="next()"
+    >
+      Siguiente
+    </button>
+  </nav>
+}
